@@ -17,8 +17,7 @@ YUI().add('calendar-app', function(Y) {
         },
         
         handleDay : function(e) {
-           console.log("handleDay", e, e.newVal);
-           this.showView('calendarDay', {day:this.get('datetime')});
+           this.showView('calendarDay', {day:e.params.datetime});
         }
 
     }, {
@@ -28,7 +27,7 @@ YUI().add('calendar-app', function(Y) {
            routes: {
                value: [
                    {path: '/',           callbacks: 'handleHome'},
-                   {path: '/day/:datetime/',   callbacks: 'handleDay'}
+                   {path: '/day/:datetime',   callbacks: 'handleDay'}
                ]
            }
         }
