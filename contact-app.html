@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="components/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="components/bootstrap/css/bootstrap-responsive.min.css">
-    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/contact.css">
   </head>
   <body class="yui3-skin-sam">
 
@@ -26,8 +26,8 @@
           <a class="brand" href="#">ClicRDV Contacts App</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Contact List</a></li>
-              <li><a href="#about">Create Contact</a></li>
+              <li class="active"><a href="#/">Contact List</a></li>
+              <li><a href="#/new">Create Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -38,7 +38,7 @@
       <div class="container" id="contact-app-views"></div>
     </div>
 
-    <script type="text/x-handlebars-template" id="contact-list-view-template">
+    <script type="text/x-handlebars-template" id="contact-list-template">
       <h1>Search</h1>
 
       <form class="search-form">
@@ -55,7 +55,10 @@
           </tr>
         </thead>
         <tbody>
-        {{#each user}}
+        {{#unless contacts}}
+          <tr class="no-contact warning"><td colspan="4">Aucun contact pour l'instant !</td></tr>
+        {{/unless}}
+        {{#each contacts}}
           <tr>
             <td>{{ lastname }}</td>
             <td>{{ firstname }}</td>
@@ -68,12 +71,15 @@
     </script>
 
 
-    <script type="text/x-handlebars-template" id="contact-edit-view-template">
+    <script type="text/x-handlebars-template" id="contact-edit-template">
       Modifier un contact : {{ contact.name }}
+
+      TODO
+
       <a class="btn btn-primary">Enregistrer</a>
     </script>
 
     <script src="components/yui/build/yui/yui-min.js"></script>
-    <script src="javascripts/main.js"></script>
+    <script src="javascripts/contact/init.js"></script>
 </body>
 </html>

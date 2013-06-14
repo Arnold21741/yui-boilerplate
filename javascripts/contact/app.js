@@ -6,19 +6,19 @@ YUI().add('contact-app', function(Y) {
         // Add or override prototype properties and methods here.
 
         views: {
-            contactList: {preserve: true, type: Y.ContactListView},
-            contactEdit: {preserve: false}
+            contactList: {type: Y.ContactListView},
+            contactEdit: {type: Y.ContactEditView}
         },
 
         initializer: function () {
 
         },
 
-        handleContactList: function () {
+        handleContactList: function (req) {
             this.showView('contactList');
         },
 
-        handleContactEdit: function () {
+        handleContactEdit: function (req) {
             this.showView('contactEdit');
         }
 
@@ -29,8 +29,8 @@ YUI().add('contact-app', function(Y) {
         ATTRS: {
             routes: {
                 value: [
-                    {path: '/',           callbacks: 'handleContactList'},
-                    {path: '/users/:id/', callbacks: 'handleContactEdit'}
+                    {path: '/',          callbacks: 'handleContactList'},
+                    {path: '/users/:id', callbacks: 'handleContactEdit'}
                 ]
             }
         }

@@ -17,13 +17,15 @@ YUI({
 
     var app = new Y.ContactApp({
         container:     '#contact-app-views',
-        viewContainer: '#contact-app-views',
         serverRouting: false
     });
 
     app.render().dispatch();
 
-    // for debug
-    window.contactApp = app;
+    // trick for the default url
+    if (Y.Lang.isString(window.location.hash) && window.location.hash.length === 0) {
+        app.save('/');
+    }
+
 
 });
