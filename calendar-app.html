@@ -35,6 +35,13 @@
       <div class="container" id="calendar-app-views"></div>
     </div>
 
+    <script type="text/x-handlebars-template" id="calendar-day-view-template">
+    <h2>Rendez-vous du : {{day}}</h2>
+    {{#each appointments}}
+    <div style="color:{{color}}">{{text}} - {{start}} à {{end}}</div>
+    {{/each}}
+    </script>
+    
     <script src="components/yui/build/yui/yui-min.js"></script>
     <script src="javascripts/calendar/init.js"></script>
     

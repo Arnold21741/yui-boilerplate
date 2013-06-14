@@ -1,4 +1,5 @@
 YUI({
+    filter: 'raw',
     modules: {
         'calendar-app': {
             fullpath: 'javascripts/calendar/app.js'
@@ -11,10 +12,11 @@ YUI({
 
     var app = new Y.CalendarApp({
         container:     '#calendar-app',
-        viewContainer: '#calendar-app-views'
+        viewContainer: '#calendar-app-views',
+        serverRouting: false
     });
 
-    app.render();
+    app.render().dispatch();
 
     // for debug
     window.app = app;
