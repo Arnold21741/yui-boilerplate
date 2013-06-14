@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="components/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="components/bootstrap/css/bootstrap-responsive.min.css">
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/calendar.css">
   </head>
   <body class="yui3-skin-sam">
 
@@ -38,8 +39,17 @@
     <script type="text/x-handlebars-template" id="calendar-day-view-template">
     <h2>Rendez-vous du : {{day}}</h2>
     {{#each appointments}}
-    <div style="color:{{color}}">{{text}} - {{start}} à {{end}}</div>
+    <a href="#/appointment/{{id}}" class="appointment" style="color:{{color}}">{{text}} - {{start}} à {{end}}</a><br />
     {{/each}}
+    </script>
+    
+    <script type="text/x-handlebars-template" id="calendar-appointment-view-template">
+    <h2>Détails du rendez-vous</h2>
+    <ul>
+      <li>Texte : {{appointment.text}}</li>
+      <li>Début : {{appointment.start}}</li>
+      <li>Fin : {{appointment.end}}</li>
+    </ul>
     </script>
     
     <script src="components/yui/build/yui/yui-min.js"></script>

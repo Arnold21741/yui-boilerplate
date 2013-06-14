@@ -6,19 +6,23 @@ YUI({
         },
         'calendar-day-view': {
             fullpath: 'javascripts/calendar/calendar-day-view.js'
+        },
+        'calendar-appointment-view': {
+            fullpath: 'javascripts/calendar/calendar-appointment-view.js'
         }
     }
 }).use('calendar-app', function(Y) {
 
-    var app = new Y.CalendarApp({
+    window.app = new Y.CalendarApp({
         container:     '#calendar-app',
         viewContainer: '#calendar-app-views',
         serverRouting: false
     });
 
     app.render().dispatch();
-
-    // for debug
-    window.app = app;
+    
+    if (Y.Lang.isString(window.location.hash) && window.location.hash.length === 0) {
+         app.save('/');
+    }
 
 });
