@@ -1,0 +1,79 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="components/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="components/bootstrap/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="styles/index.css">
+  </head>
+  <body class="yui3-skin-sam">
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">ClicRDV Contacts App</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Contact List</a></li>
+              <li><a href="#about">Create Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="main" id="contact-app">
+      <div class="container" id="contact-app-views"></div>
+    </div>
+
+    <script type="text/x-handlebars-template" id="contact-list-view-template">
+      <h1>Search</h1>
+
+      <form class="search-form">
+        <input type="search" placeholder="Name">
+      </form>
+
+      <table class="table table-condensed table-bordered">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Tel</th>
+          </tr>
+        </thead>
+        <tbody>
+        {{#each user}}
+          <tr>
+            <td>{{ lastname }}</td>
+            <td>{{ firstname }}</td>
+            <td>{{ email }}</td>
+            <td>{{ phone }}</td>
+          </tr>
+        {{/each}}
+        </tbody>
+      </table>
+    </script>
+
+
+    <script type="text/x-handlebars-template" id="contact-edit-view-template">
+      Modifier un contact : {{ contact.name }}
+      <a class="btn btn-primary">Enregistrer</a>
+    </script>
+
+    <script src="components/yui/build/yui/yui-min.js"></script>
+    <script src="javascripts/main.js"></script>
+</body>
+</html>
