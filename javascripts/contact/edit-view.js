@@ -5,8 +5,8 @@ YUI().add('contact-edit-view', function(Y) {
         template: Y.Handlebars.compile(Y.one('#contact-edit-template').getHTML()),
 
         render: function() {
-            var user    = this.get('user'),
-                content = this.template({user: user});
+            var contact = this.get('contact').toJSON(),
+                content = this.template({contact: contact});
 
             this.get('container').setHTML(content);
 

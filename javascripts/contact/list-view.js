@@ -5,7 +5,7 @@ YUI().add('contact-list-view', function(Y) {
         template: Y.Handlebars.compile(Y.one('#contact-list-template').getHTML()),
 
         render: function() {
-            var contacts = [],
+            var contacts = this.get('contacts').toJSON(),
                 content  = this.template({contacts: contacts});
 
             this.get('container').setHTML(content);

@@ -10,7 +10,6 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="components/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="components/bootstrap/css/bootstrap-responsive.min.css">
     <link rel="stylesheet" href="styles/contact.css">
   </head>
   <body class="yui3-skin-sam">
@@ -18,15 +17,10 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
           <a class="brand" href="#">ClicRDV Contacts App</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#/">Contact List</a></li>
+              <li><a href="#/">Contact List</a></li>
               <li><a href="#/new">Create Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -39,7 +33,7 @@
     </div>
 
     <script type="text/x-handlebars-template" id="contact-list-template">
-      <h1>Search</h1>
+      <h1>Rechercher un contact</h1>
 
       <form class="search-form">
         <input type="search" placeholder="Name">
@@ -52,19 +46,24 @@
             <th>Prénom</th>
             <th>Email</th>
             <th>Tel</th>
+            <th>Client ?</th>
           </tr>
         </thead>
         <tbody>
-        {{#unless contacts}}
-          <tr class="no-contact warning"><td colspan="4">Aucun contact pour l'instant !</td></tr>
-        {{/unless}}
         {{#each contacts}}
           <tr>
-            <td>{{ lastname }}</td>
+            <td><a href="#/contact/{{ id }}">{{ lastname }}</td>
             <td>{{ firstname }}</td>
             <td>{{ email }}</td>
             <td>{{ phone }}</td>
+            {{#if is_client}}
+              <td class="success">yes</td>
+            {{else}}
+              <td>no</td>
+            {{/if}}
           </tr>
+        {{else}}
+          <tr class="no-contact warning"><td colspan="4">Aucun contact pour l'instant !</td></tr>
         {{/each}}
         </tbody>
       </table>
@@ -72,9 +71,18 @@
 
 
     <script type="text/x-handlebars-template" id="contact-edit-template">
-      Modifier un contact : {{ contact.name }}
+      <h1>Modification du contact "{{ contact.lastname }}"</h1>
 
-      TODO
+      <p>TODO</p>
+
+      <a class="btn btn-primary">Enregistrer</a>
+    </script>
+
+
+    <script type="text/x-handlebars-template" id="contact-create-template">
+      <h1>Créer un contact</h1>
+
+      <p>TODO</p>
 
       <a class="btn btn-primary">Enregistrer</a>
     </script>

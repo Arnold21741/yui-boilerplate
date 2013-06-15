@@ -19,24 +19,25 @@ Pour chaque projet, nous vous fournissons un squelette d'application que vous de
 
 * Navigation jour par jour, avec le détail de chaque rendez-vous lorsque l’on clique sur un rendez-vous
 * Des boutons de navigation entre les jours (précédent/suivant/jour courant) doivent permettent la navigation
+* Bonus : Utiliser les transitions entre les changements de vues
 
 
 ## Contact App
 
 * Utiliser les outils fournis par YUI pour rechercher et afficher des contacts : App, Router, Model, ModelList, Autocompleter
 * Créer un formulaire d’édition de contact grâce à notre librairie open source (InputEx). Quelques lignes suffiront !
-
-
-## Bonus
-
-* Utiliser les transitions entre les changements de vues
+* Bonus : Utiliser les transitions entre les changements de vues
+* Bonus : Enregistrer les modifications dans localStorage
 
 
 # Ressources 
 
 * http://yuilibrary.com/yui/docs/
+* http://yuilibrary.com/yui/docs/app/app-contributors.html
+* http://yuilibrary.com/yui/docs/app/app-todo.html
 * http://neyric.github.io/inputex/
 * http://twitter.github.io/bootstrap/
+* http://handlebarsjs.com/
 
 
 En cas de coupure internet, vous trouverez la documentation YUI dans `components/yui`

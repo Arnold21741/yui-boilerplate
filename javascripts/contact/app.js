@@ -6,20 +6,31 @@ YUI().add('contact-app', function(Y) {
         // Add or override prototype properties and methods here.
 
         views: {
-            contactList: {type: Y.ContactListView},
-            contactEdit: {type: Y.ContactEditView}
+            list:   {type: Y.ContactListView},
+            edit:   {type: Y.ContactEditView},
+            create: {type: Y.ContactCreateView}
         },
 
         initializer: function () {
-
+            this.set('contacts', new Y.ContactModelList({
+                items: Y.UserData
+            }));
         },
 
-        handleContactList: function (req) {
-            this.showView('contactList');
+        handleListContact: function (req) {
+            this.showView('list', {
+                contacts: this.get('contacts')
+            });
         },
 
-        handleContactEdit: function (req) {
-            this.showView('contactEdit');
+        handleEditContact: function (req) {
+            this.showView('edit', {
+                contact: this.get('contacts').getById(req.params.id)
+            });
+        },
+
+        handleCreateContact: function (req) {
+            this.showView('create');
         }
 
     }, {
@@ -27,12 +38,19 @@ YUI().add('contact-app', function(Y) {
         // Add static properties and methods here.
 
         ATTRS: {
+
             routes: {
                 value: [
-                    {path: '/',          callbacks: 'handleContactList'},
-                    {path: '/users/:id', callbacks: 'handleContactEdit'}
+                    {path: '/',            callbacks: 'handleListContact'},
+                    {path: '/new',         callbacks: 'handleCreateContact'},
+                    {path: '/contact/:id', callbacks: 'handleEditContact'}
                 ]
+            },
+
+            contacts: {
+                value: null
             }
+
         }
 
     });
@@ -42,7 +60,10 @@ YUI().add('contact-app', function(Y) {
 }, '@VERSION@', {
     requires: [
         'app',
+        'contact-data',
+        'contact-model-list',
         'contact-list-view',
-        'contact-edit-view'
+        'contact-edit-view',
+        'contact-create-view'
     ]
 });
