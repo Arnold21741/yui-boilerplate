@@ -17,6 +17,7 @@ YUI().add('contact-create-view', function(Y) {
 }, '@VERSION@', {
     requires: [
         'view',
-        'handlebars'
+        'handlebars',
+        'inputex-string'
     ]
 });

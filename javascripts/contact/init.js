@@ -38,6 +38,11 @@ YUI({
         'contact-create-view': {
             fullpath: 'javascripts/contact/create-view.js'
         }
+    },
+    groups: {
+        inputex: {
+            base: 'components/inputex/build/'
+        }
     }
 }).use('contact-app', function(Y) {
 
